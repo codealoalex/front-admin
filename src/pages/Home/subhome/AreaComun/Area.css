@@ -1,0 +1,39 @@
+.area-container {
+  width: 80vw;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+.lc_area-comun {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+.lc_reserva-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.lc_calendar-info-date {
+  width: 100% !important;
+}
+.lc_area-comun-titulos {
+  display: flex;
+  flex-direction: column;
+}
+.lc_area-comun-titulos-container {
+  padding: 30px 10px;
+}
+.lc_area-comun-titulos > img {
+  width: 100%;
+}
+
+@media screen and (width<=500px) {
+  .area-container {
+    width: 100vw;
+  }
+  .lc_area-comun {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

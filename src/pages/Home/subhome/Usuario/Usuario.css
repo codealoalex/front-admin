@@ -1,0 +1,47 @@
+.c_usuario-info{
+    width: 100%;
+}
+.c_usuario-info-personal{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px;
+}
+.c_usuario-info-personal-datos{
+    background-color: #ddd;
+    padding: 30px;
+    border-radius: 15px;
+}
+.c_usuario-info-personal-dpto{
+    background-color: #ddd;
+    padding: 30px;
+    border-radius: 15px;
+}
+.c_usuario-info-reservas{
+    padding: 30px;
+}
+.c_usuario-info-reserva{
+    background-color: #ddd;
+    padding: 30px;
+    border-radius: 15px;
+}
+.info-reserva-ticket{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.datos-reserva-ticket{
+    background-color: var(--color-verde);
+    width: fit-content;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+/* .reserva-activa{
+    background-color: green;
+}
+.reserva-finalizada{
+    background-color: red;
+} */

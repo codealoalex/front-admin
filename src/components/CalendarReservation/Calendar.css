@@ -1,0 +1,29 @@
+/* Ejemplo de CSS para un look moderno y limpio */
+.rdp {
+  --rdp-cell-size: 38px; /* Tamaño de cada celda del día */
+  --rdp-accent-color: #007bff; /* Color primario (como el azul de un sistema operativo) */
+  --rdp-background-color: #e7effc; /* Fondo para el día seleccionado */
+  --rdp-border-radius: 8px; /* Borde redondeado para el calendario */
+  border: 1px solid #e0e0e0;
+  border-radius: var(--rdp-border-radius);
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* Estilo para el día actualmente seleccionado */
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+  color: white;
+  background-color: var(--rdp-accent-color);
+  border-radius: 50%; /* Días circulares */
+}
+
+/* Estilo al pasar el ratón por encima */
+.rdp-day_today:not(.rdp-day_selected) {
+    font-weight: bold; /* El día de hoy puede estar en negrita */
+}
+
+/* Estilo para el encabezado de los días de la semana */
+.rdp-head_cell {
+    color: #6c757d;
+    font-size: 0.85rem;
+}

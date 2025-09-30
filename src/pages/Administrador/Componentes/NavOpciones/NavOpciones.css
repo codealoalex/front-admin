@@ -1,0 +1,29 @@
+.pi{
+    padding: 0 10px 2px;
+}
+.menubar{
+    width: fit-content;
+    margin: 0 auto;
+}
+.registrar{
+    color: #fff;
+}
+.item> .p-menuitem-content > .p-menuitem-link {
+    background-color: var(--color-verde); 
+    border-radius: 10px;
+    transition: filter .1s ease-in-out;
+}
+
+.item> .p-menuitem-content > .p-menuitem-link:hover {
+    filter: contrast(1.5);
+}
+.item > .p-menuitem-content > .p-menuitem-link .p-menuitem-text{
+    color: white; 
+}
+
+@media screen and (width<=1000px) {
+    .menubar{
+        width: auto;
+        margin: 0;
+    }
+}

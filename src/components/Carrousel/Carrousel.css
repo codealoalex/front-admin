@@ -1,0 +1,33 @@
+.carrusel-container{
+    position: relative;
+    height: 300px;
+}
+.carrusel-container > img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.carrusel-btn{
+    position: absolute;
+    height: min-content;
+    top: 0;
+    bottom: 0;
+    font-size: 2.5em;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff0;
+    border: none;
+    margin: auto 10px;
+    font-weight: bolder;
+    transition: background-color .1s ease-in;
+}
+.carrusel-btn:hover{
+    background-color: #fff5;
+}
+#btn-left{
+    left: 0;
+}
+#btn-right{
+    right: 0;
+}

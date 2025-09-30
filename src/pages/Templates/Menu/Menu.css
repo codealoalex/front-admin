@@ -1,0 +1,65 @@
+.c_menu-Container
+{
+
+    min-height: 1000px;
+    height: 100%;
+
+    min-width: 100px;
+    width: auto;
+    max-width: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+
+}
+
+
+.c_menu-userInfo
+{
+    min-height: 70px;
+    max-height: 120px;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: start;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+
+    
+}
+
+.c_menu-logOut
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    min-width: 100px;
+
+    height: 30px;
+    transition: all 0.3s ease;
+    
+}
+
+.c_menu-logOut:hover
+{
+    filter: brightness(0.9);
+    background-color: rgb(253, 200, 200);
+
+}
+
