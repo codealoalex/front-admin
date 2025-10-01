@@ -14,7 +14,10 @@ const Residentes = () => {
 
     useEffect(() => {
         const obtenerDatosResidentes = async () => {
-            const conexion = await fetch('http://localhost:10000/api/administrador/obtener-residentes');
+            const conexion = await fetch('http://localhost:10000/api/administrador/obtener-residentes', {
+                method: 'GET',
+                credentials: 'include'
+            });
             const data = await conexion.json();
             setResidentes(data.residentes);
         }
@@ -27,9 +30,7 @@ const Residentes = () => {
 
     return (
         <div className='panel-residentes'>
-            {/* <Link to={`/crear-usuario`}>
-                    <button className='panel-admin-res-opciones'>Añadir</button>
-                </Link> */}
+            <h1>Residentes</h1>
             {Array.from(departamentos).map(departamento => (
                 <div className='panel-residentes-dpto'>
                     <h3>Residentes departamento: {departamento}</h3>
@@ -37,10 +38,10 @@ const Residentes = () => {
                         {residentes && residentes.map(residente => (
                             residente.id_departamento == departamento &&
                             <CardUser usuario={residente}
-                                editar={
-                                    <Modal accion={'Editar'} accion_desc={''} id_usuario={residente.id_residente} contenido={<ActualizarResidente id_usuario={residente.id_residente} />} icon={'user-edit'} color={'contrast'}/>}
-
-                                eliminar={<Modal accion={'Eliminar'} accion_desc={'Eliminar usuario del edificio'} id_usuario={residente.id_residente} contenido={`Al realizar esta accion, usted está eliminando para siempre del registro al usuario ${residente.nombre} ${residente.paterno} ${residente.materno}`} usuario={residente.id_residente} color={'danger'} icon={'trash'} />}
+                                opciones={[
+                                    <Modal accion={'Editar'} accion_desc={''} id_usuario={residente.id_residente} contenido={<ActualizarResidente id_usuario={residente.id_residente} />} icon={'user-edit'} color={'contrast'} />,
+                                    <Modal accion={'Eliminar'} accion_desc={'Eliminar usuario del edificio'} id_usuario={residente.id_residente} contenido={`Al realizar esta accion, usted está eliminando para siempre del registro al usuario ${residente.nombre} ${residente.paterno} ${residente.materno}`} usuario={residente.id_residente} color={'danger'} icon={'trash'} tipo={'residente'}/>
+                                ]}
                             />
                         ))}
                     </div>

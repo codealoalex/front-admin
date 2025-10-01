@@ -7,29 +7,51 @@ export default function NavOpciones({setPage}) {
             label: 'Registrar',
             icon: 'pi pi-user-plus registrar',
             className:'item',
-            command: () => {
-                setPage('Registrar-usuario')
-            }
+            items: [
+                {
+                    label: 'Nuevo usuario',
+                    icon: 'pi pi-user',
+                    command: () => {
+                        setPage('registrar-usuario')
+                    }
+                },
+                {
+                    label: 'Nueva visita',
+                    icon: 'pi pi-id-card',
+                    command: () => {
+                        setPage('registrar-visita')
+                    }
+                }, {
+                    label: 'Nuevo personal',
+                    icon: 'pi pi-wrench',
+                    command: () => {
+                        setPage('registrar-personal')
+                    }
+                },
+                {
+                    separator:true,
+                }
+            ]
         },
         {
             label: 'Residentes',
             icon:'pi pi-users',
             command: () => {
-                setPage('Residentes')
+                setPage('residentes')
             },
         },
         {
             label: 'Visitantes',
             icon:'pi pi-id-card',
             command: () => {
-                setPage('Visitantes')
+                setPage('visitantes')
             }
         },
         {
             label: 'Personal',
             icon:'pi pi-briefcase',
             command: () => {
-                setPage('Personal')
+                setPage('personal')
             }
             /* items: [
                 {

@@ -34,7 +34,7 @@ export function Input({ p_value = "", p_id = "xd", p_text = "label", p_placeHold
                         ? (hide?'password':'text')
                         : p_type}
                 />
-                <button type="button" onClick={handleHide} style={{backgroundColor:'transparent', border:'none', position:'absolute', top:'0', right:'5px', bottom:'0', margin:'0 auto', outline:'none', display:'flex', justifyContent:'center', alignItems:'center', cursor:'pointer'}}>
+                <button type="button" onClick={handleHide} style={{backgroundColor:'transparent', border:'none', position:'absolute', top:'0', right:'5px', bottom:'0', margin:'0 auto', display:'flex', justifyContent:'center', alignItems:'center', cursor:'pointer'}}>
                     {hide ?<FaRegEyeSlash />:<FaRegEye/>}
                 </button>
             </div>

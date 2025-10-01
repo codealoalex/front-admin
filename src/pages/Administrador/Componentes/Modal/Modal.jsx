@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 
-export default function Modal({ accion, accion_desc, contenido, usuario, color, icon }) {
+export default function Modal({ accion, accion_desc, contenido, usuario, color, icon, tipo}) {
 
     const [visible, setVisible] = useState(false);
     const [realizar, setRealizar] = useState(false);
@@ -15,14 +15,14 @@ export default function Modal({ accion, accion_desc, contenido, usuario, color, 
         handleRealizar(true);
         if (visible && realizar)
             try {
-                const conexion = await fetch(`http://localhost:10000/api/administrador/eliminar-residente/:${usuario}`, {
+                const conexion = await fetch(`http://localhost:10000/api/administrador/eliminar-${tipo}/:${usuario}`, {
                     method: 'DELETE',
                     credentials: 'include'
                 });
                 if (!conexion.ok) throw new Error();
                 const datos = await conexion.json();
                 alert(datos.message);
-                location.href = 'admin-residentes';
+                location.href = 'panel-admin';
             } catch (e) {
                 console.error(e.message);
             }

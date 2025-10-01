@@ -20,7 +20,10 @@ const ActualizarResidente = ({ id_usuario }) => {
     useEffect(() => {
         const obtenerDatosUsuario = async () => {
             try {
-                const conexion = await fetch(`http://localhost:10000/api/administrador/obtener-residente/:${id}`);
+                const conexion = await fetch(`http://localhost:10000/api/administrador/obtener-residente/:${id}`, {
+                    method: 'GET',
+                    credentials:'include'
+                });
                 const datos = await conexion.json();
                 setResidente(datos.residente);
                 setNombre(datos.residente["nombre"]);
@@ -57,7 +60,8 @@ const ActualizarResidente = ({ id_usuario }) => {
                 headers: {
                     'Content-type':'application/json'
                 },
-                body:JSON.stringify(datos)
+                body: JSON.stringify(datos),
+                credentials:'include'
             })
             const respuesta = await conexion.json();
             if (!conexion.ok) throw new Error();
@@ -67,9 +71,7 @@ const ActualizarResidente = ({ id_usuario }) => {
             console.error(e.message);
         }
     }
-
-    console.log(fecha);
-
+    
     return (
         <div className='s_admin-actualizar-usuario'>
             <h3>Actualizar datos del usuario</h3>

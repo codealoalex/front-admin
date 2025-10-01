@@ -45,6 +45,7 @@
   top: -15px;
   left: 5px;
 }
+
 #s_admin-actualizar-btn:hover {
   background-color: var(--color-verde);
   color: #fff;

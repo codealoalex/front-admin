@@ -18,7 +18,8 @@ import Area from './pages/Home/subhome/AreaComun/Area';
 import EliminarResidente from './pages/Administrador/Residentes/EliminarResidentes/EliminarResidente';
 import ActualizarResidente from './pages/Administrador/Residentes/ActualizarResidentes/ActualizarResidente';
 import CrearUsuario from './pages/Administrador/Residentes/CrearUsuario/CrearUsuario';
-import PanelAdmin from './pages/Administrador/Residentes/Panel/PanelAdmin';
+import PanelAdmin from './pages/Administrador/Panel/PanelAdmin';
+import SetNewPwd from './pages/Login/SetNewPwd/SetNewPwd';
 
 
 function PrivateRoute({ children }) {
@@ -34,6 +35,7 @@ function App() {
 
         <Routes>
           <Route path='login' element={<Login />} />
+          <Route path='cambiar-pwd' element={<SetNewPwd />} />
           <Route path='register' element={<Register />} />
           <Route path='verificar' element={<ConfirmCode />} />
           <Route path='*' element={<Login />} />
@@ -41,7 +43,7 @@ function App() {
             path="/panel-admin"
             element={
               <PrivateRoute>
-                <PanelAdmin/>
+                <PanelAdmin />
               </PrivateRoute>
             }
           />

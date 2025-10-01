@@ -48,9 +48,10 @@ const CrearUsuario = () => {
             ci,
             fecha,
             clave,
-            tipo,
-            departamento: dpto[0]
+            tipo: tipo[0],
+            departamento: dpto[0] || 'hola'
         }
+        console.log(datos);
         try {
             const conexion = await fetch('http://localhost:10000/api/administrador/registrar-usuario', {
                 method: 'POST',
@@ -60,9 +61,7 @@ const CrearUsuario = () => {
                 body: JSON.stringify(datos),
                 credentials: 'include'
             })
-            console.log(conexion);
             const respuesta = await conexion.json();
-            console.log(respuesta);
             if (!conexion.ok) {
                 alert(respuesta.message);
                 throw new Error();
@@ -88,8 +87,9 @@ const CrearUsuario = () => {
                     <Input value={ci} setValue={setCi} label={'Carnet de identidad:'} />
                     <Input value={clave} setValue={setClave} label={'Contraseña (Debe ser el CI):'} tipo="password"/>
                     <Input value={fecha} setValue={setFecha} label={'Fecha de nacimiento:'} tipo="date"/>
-                    <Input value={tipo} setValue={setTipo} label={'Tipo de usuario:'} />
-                    {departamentos && 
+                    <Select opciones={['Administrador', 'Residente']} opcion={tipo} setOpcion={setTipo} tipo_select={'Seleccionar usuario'} />
+                    {tipo =='Residente' &&
+                        departamentos &&
                         <Select opciones={[...departamentos]} opcion={dpto} setOpcion={setDpto} tipo_select={'Seleccionar departamento'} />
                     }
                 </div>

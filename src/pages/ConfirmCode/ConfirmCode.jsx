@@ -5,37 +5,43 @@ import './confirmCode.css';
 import { useState } from "react"
 
 const ConfirmCode = () => {
+
+    const [codigo, setCodigo] = useState('');
+
     const verificarCodigo = async (e) => {
         e.preventDefault();
-        console.log(codigo);
+        const data = {
+            codigo,
+            tipo: localStorage.getItem("tipo")
+        }
         const response = await fetch('http://localhost:10000/api/usuario/verificar', {
             method: 'POST',
             headers: {
                 "Content-type": 'application/json'
             },
-            body: JSON.stringify({
-                codigo: codigo
-            }),
+            body: JSON.stringify(data),
             credentials: "include"
         });
 
-        const data = await response.json();
+        const datos = await response.json();
 
         if (response.status == 401) {
-            alert(data.message);
+            alert(datos.message);
         }
 
         if (response.ok) {
-            window.location.href = "/home";
+            window.location.href = "/panel-admin";
         }
 
     }
 
-    const [codigo, setCodigo] = useState('');
     return (
         <div id='codigo-container'>
+            <div id="container-title">
+                <h2>Código de confirmación</h2>
+                <h3>Ingrese el código enviado a su correo electrónico</h3>
+            </div>
             <form id='container-form' onSubmit={verificarCodigo}>
-                <legend>Ingrese el código</legend>
                 <InputOtpConfirm code={codigo} setCode={setCodigo}/>
                 <Button p_texto='Enviar' p_type='submit'/>
             </form>

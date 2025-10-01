@@ -7,21 +7,28 @@ import Residentes from './Residentes/Residentes';
 import AreaComun from '../../../Home/subhome/AreaComun/AreaComun';
 import Parqueo from '../../../Home/subhome/Parqueo/Parqueo';
 import CrearUsuario from '../CrearUsuario/CrearUsuario';
+import Personal from '../../Personal/Personal';
+import RegistrarPersonal from '../../Personal/Opciones/Registrar/RegistrarPersonal';
+import Visita from '../../Visitante/Visita';
 
-const Usuarios = ({ setPage }) => {
+const Usuarios = () => {
 
-  const [pageSelected, setPageSelected] = useState("Residentes")
+  const [pageSelected, setPageSelected] = useState("residentes")
 
   const renderPage = () => {
     switch (pageSelected) {
-      case "Registrar-usuario":
-        return <CrearUsuario/>
-      case "Residentes":
+      case "registrar-usuario":
+        return <CrearUsuario />
+      case "registrar-personal":
+        return <RegistrarPersonal />
+      case "registrar-visita":
+        return <Visita/>
+      case "residentes":
         return <Residentes />
-      case "Visitantes":
+      case "visitantes":
         return <AreaComun />
-      case "Personal":
-        return <Parqueo />
+      case "personal":
+        return <Personal />
       /*case "areaComun":
         return <AreaComun />
       case "usuario":

@@ -1,4 +1,4 @@
-.s_admin-registrar-usuario {
+.s_admin-registrar-visita {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,27 +9,35 @@
   background-color: #ddddddaa;
   border-radius: 15px;
 }
-.s_admin-registrar-form {
+.admin-registrar-visita-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   max-width: 700px;
-  gap: 30px;
+  gap: 20px;
 }
-.s_admin-registrar-campos {
+.visita-form-campos {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
 }
-.s_form-input {
-  width: 100% !important;
-  padding: 10px 10px;
-  font-size: 14px;
+.visita-form-asunto{
+    width: 100%;
+    color: #888;
 }
-#s_admin-actualizar-btn {
+.visita-form-asunto>label{
+    padding: 5px;
+}
+.visita-form-asunto>textarea{
+    display: block;
+    width: 100%;
+    padding: 10px 10px 40px;
+    font-family: sans-serif;
+    color: #333;
+    resize: none;
+}
+#s_admin-visita-btn {
   display: block;
   margin: 0 auto;
   padding: 10px 30px;
@@ -40,26 +48,21 @@
   border: none;
   transition: background-color 0.2s ease-in-out;
 }
-.s_form-label {
-  font-size: 15px;
-  top: -15px;
-  left: 5px;
-}
-#s_admin-actualizar-btn:hover {
+#s_admin-visita-btn:hover {
   background-color: var(--color-verde);
   color: #fff;
 }
 
 @media screen and (width<=1000px) {
-  .s_admin-registrar-usuario {
+  .s_admin-registrar-visita {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
   }
-  .s_admin-registrar-form {
+  .admin-registrar-visita-form {
     width: 300px;
   }
-  .s_admin-registrar-campos {
+  .admin-registrar-visita-form-campos {
     width: auto;
   }
 }

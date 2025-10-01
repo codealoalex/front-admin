@@ -1,0 +1,10 @@
+.p-input-icon{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    margin: auto ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

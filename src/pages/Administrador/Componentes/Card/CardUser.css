@@ -48,9 +48,11 @@
 .btn-opcion-modal {
   width: 100%;
 }
-@media screen and (width<=890px) {
+@media screen and (width<=940px) {
   .container-card {
+    max-width: 450px;
     flex-wrap: wrap;
+    margin: 0 auto;
   }
   .card-imagen{
     width: 400px;
@@ -69,5 +71,9 @@
   }
   .card-imagen {
     width: 100%;
+  }
+  .card-usuario-opciones{
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

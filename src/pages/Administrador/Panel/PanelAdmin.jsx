@@ -2,10 +2,10 @@ import './PanelAdmin.css';
 
 import { useState } from 'react'
 
-import Navbar from '../../../../components/Navbar/Navbar'
-import AreaComun from '../../../Home/subhome/AreaComun/AreaComun';
-import Parqueo from '../../../Home/subhome/Parqueo/Parqueo';
-import Usuarios from '../Usuarios/Usuarios';
+import Navbar from '../../../components/Navbar/Navbar'
+import AreaComun from '../../Home/subhome/AreaComun/AreaComun';
+import Parqueo from '../../Home/subhome/Parqueo/Parqueo';
+import Usuarios from '../Residentes/Usuarios/Usuarios';
 
 const PanelAdmin = () => {
   const [pageSelected, setPageSelected] = useState("")

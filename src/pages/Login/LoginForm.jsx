@@ -73,19 +73,16 @@ export function LoginForm() {
 
             localStorage.setItem("token", data.token);
             localStorage.setItem("id", data.id);
+            localStorage.setItem("tipo", data.tipo);
             /* window.location.href = "/home"; */
-            if (response.status == 201) {
-                alert('Debe cambiar su clave');
-                return;
-            }
-            if (userType[0].toLowerCase() != "administrador") {
-                window.location.href = "/verificar";
-                console.log(userType[0]);
-            }
-            else {
-                window.location.href = "/panel-admin";
-            }
 
+            if (data.change) {
+                alert('Debe cambiar su contraseña');
+                window.location.href = 'cambiar-pwd';
+            } else {
+                /* window.location.href = "verificar"; */
+                window.location.href = "panel-admin";
+            }
         }
         catch (error) {
             alert(error.message);
