@@ -20,11 +20,15 @@ import ActualizarResidente from './pages/Administrador/Residentes/ActualizarResi
 import CrearUsuario from './pages/Administrador/Residentes/CrearUsuario/CrearUsuario';
 import PanelAdmin from './pages/Administrador/Panel/PanelAdmin';
 import SetNewPwd from './pages/Login/SetNewPwd/SetNewPwd';
+import PanelUsuario from './pages/Usuario/PanelUsuario';
+import AreaComun from './pages/Home/subhome/AreaComun/AreaComun';
 
 
 function PrivateRoute({ children }) {
   const token = localStorage.getItem("token");
-  return token ? children : <Navigate to="/login" />;
+  const tipo = localStorage.getItem("tipo")
+  if (token && tipo == "administrador") return children;
+  return <Navigate to="/area-comun" />;
 }
 
 function App() {
@@ -38,6 +42,8 @@ function App() {
           <Route path='cambiar-pwd' element={<SetNewPwd />} />
           <Route path='register' element={<Register />} />
           <Route path='verificar' element={<ConfirmCode />} />
+          <Route path='panel-usuario' element={<PanelUsuario />} />
+          <Route path='area-comun' element={<AreaComun/>}/>
           <Route path='*' element={<Login />} />
           <Route
             path="/panel-admin"

@@ -10,6 +10,7 @@ import CrearUsuario from '../CrearUsuario/CrearUsuario';
 import Personal from '../../Personal/Personal';
 import RegistrarPersonal from '../../Personal/Opciones/Registrar/RegistrarPersonal';
 import Visita from '../../Visitante/Visita';
+import RegistroVisitas from '../../Visitante/RegistroVisitas/RegistroVisitas';
 
 const Usuarios = () => {
 
@@ -26,7 +27,7 @@ const Usuarios = () => {
       case "residentes":
         return <Residentes />
       case "visitantes":
-        return <AreaComun />
+        return <RegistroVisitas />
       case "personal":
         return <Personal />
       /*case "areaComun":

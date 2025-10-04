@@ -30,7 +30,7 @@ export function LoginForm() {
         element.preventDefault();
 
         try {
-            /*             if (!captchaValido) throw new Error('Debe completar el captcha');  */
+            if (!captchaValido) throw new Error('Debe completar el captcha'); 
             const response = await fetch("http://localhost:10000/api/usuario/login",
                 {
                     method: "POST",
@@ -45,7 +45,6 @@ export function LoginForm() {
                         }
                     ),
                     credentials: "include"
-
                 }
             );
 
@@ -57,6 +56,10 @@ export function LoginForm() {
             const data = await response.json();
 
             if (response.status == 401) {
+                alert(data.message)
+                return;
+            }
+            if (response.status == 500) {
                 alert(data.message)
                 return;
             };
@@ -80,8 +83,7 @@ export function LoginForm() {
                 alert('Debe cambiar su contraseña');
                 window.location.href = 'cambiar-pwd';
             } else {
-                /* window.location.href = "verificar"; */
-                window.location.href = "panel-admin";
+                window.location.href = 'verificar';
             }
         }
         catch (error) {

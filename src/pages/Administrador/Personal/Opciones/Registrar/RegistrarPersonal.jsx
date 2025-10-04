@@ -1,10 +1,34 @@
 import './RegistrarPersonal.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "../../../Componentes/Input/Input";
 import Select from '../../../Componentes/Select/Select';
 
 const RegistrarPersonal = () => {
 
+    let mantenimientos = new Map();
+
+    const [trabajos, setTrabajos] = useState(null);
+
+    useEffect(() => {
+        const obtenerMantenimientos = async () => {
+            try {
+                const conexion = await fetch('http://localhost:10000/api/mantenimiento/', {
+                    method: 'GET',
+                    credentials: 'include'
+                })
+                if (!conexion) throw new Error("No se pudo establecer la conexion");
+                const datos = await conexion.json();
+                datos["activos"].forEach(activo => {
+                    mantenimientos.set(activo.tipo, activo.id_mantenimiento);
+                })
+                setTrabajos(mantenimientos);
+            } catch (e) {
+                console.error(e.message)
+            }
+        }
+        obtenerMantenimientos();
+    }, [])
+    
     const [nombre, setNombre] = useState('');
     const [paterno, setPaterno] = useState('');
     const [materno, setMaterno] = useState('');
@@ -13,6 +37,7 @@ const RegistrarPersonal = () => {
     const [salario, setSalario] = useState('');
     const [email, setEmail] = useState('');
     const [estado, setEstado] = useState('');
+    const [empleo, setEmpleo] = useState('');
     const [entrada, setEntrada] = useState('');
     const [salida, setSalida] = useState('');
 
@@ -26,11 +51,13 @@ const RegistrarPersonal = () => {
             celular,
             salario,
             email,
+            empleo: trabajos.get(empleo[0]),
             estado: (estado == 'Activo') ? true : false,
             entrada,
             salida
         }
         try {
+            console.log(datos);
             const conexion = await fetch('http://localhost:10000/api/administrador/registrar-personal', {
                 method: 'POST',
                 headers: {
@@ -50,7 +77,7 @@ const RegistrarPersonal = () => {
 
     return (
         <div className='s_admin-registrar-usuario'>
-            <h3>Registrar nuevo personal</h3>
+            <h1>Registrar nuevo personal</h1>
             <form className='s_admin-registrar-form' onSubmit={registrarPersonal}>
                 <div className="s_admin-registrar-campos">
                     <Input value={nombre} setValue={setNombre} label={'Nombre'} />
@@ -60,6 +87,7 @@ const RegistrarPersonal = () => {
                     <Input value={ci} setValue={setCi} label={'Carnet de identidad'} />
                     <Input value={celular} setValue={setCelular} label={'Celular'} tipo="number" />
                     <Input value={salario} setValue={setSalario} label={'Salario'} />
+                    {trabajos && <Select opciones={Array.from(trabajos.keys())} opcion={empleo} setOpcion={setEmpleo} tipo_select={'Seleccione el área del personal'}/>}
                     <Input value={entrada} setValue={setEntrada} label={'Hora de entrada'} tipo="time" />
                     <Input value={salida} setValue={setSalida} label={'Hora de salida'} tipo="time" />
                 </div>
